@@ -156,7 +156,8 @@ public class MyDeptDao implements DeptDao {
 		Connection con = DataSourceUtils.getConnection(dataSource);
 		
 		List<Dept> list=null;
-		
+		List<Emp> emps = null;
+		Dept d= null;
 		try {
 			PreparedStatement pstmt = con.prepareStatement(SELECT_ALL_WITH_EMPS);
 			ResultSet rs = pstmt.executeQuery();
@@ -164,14 +165,38 @@ public class MyDeptDao implements DeptDao {
 			while(rs.next()) {
 				if (list == null)
 					list = new ArrayList<Dept>();
+					
+				d = new Dept();
+				d.setDeptno(rs.getInt("deptno"));
+				d.setDname(rs.getString("dname"));
+				d.setLoc(rs.getString("loc"));
+				emps=new ArrayList<Emp>();
 				
+				Emp emp = new Emp();
+				emp.setEmpno(rs.getInt("empno"));
+				emp.setEname(rs.getString("ename"));
+				emp.setJob(rs.getString("job"));
+				emp.setMgr(rs.getInt("mgr"));
+				emp.setHiredate(rs.getDate("hiredate"));
+				emp.setSal(rs.getFloat("sal"));
+				emp.setComm(rs.getFloat("comm"));
 				
+				list.add(d);
+				emps.add(emp);
+				
+				d.setEmps(emps);
+				
+			
 			}
+				
+			
 			
 			
 		} catch (SQLException e) {
 			throw new DataRetrievalFailureException("selectAllWithEmps() fail", e);
 		}
+		
+		
 		
 		return list;
 	}
