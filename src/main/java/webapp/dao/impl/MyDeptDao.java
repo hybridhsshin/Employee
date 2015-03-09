@@ -183,9 +183,9 @@ public class MyDeptDao implements DeptDao {
 				
 				list.add(d);
 				emps.add(emp);
-				
-				d.setEmps(emps);
-				
+				if(d!=null){
+					d.setEmps(emps);
+				}
 			
 			}
 				
