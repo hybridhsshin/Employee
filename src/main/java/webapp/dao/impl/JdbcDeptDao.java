@@ -174,7 +174,7 @@ public class JdbcDeptDao implements DeptDao {
 					dept = d;
 					list.add(dept);
 				}
-				
+
 				Emp e = new Emp();
 				e.setEmpno(rs.getInt("empno"));
 				e.setEname(rs.getString("ename"));
@@ -186,7 +186,7 @@ public class JdbcDeptDao implements DeptDao {
 				
 				dept.getEmps().add(e);
 			}
-			
+				
 			
 		} catch (SQLException e) {
 			throw new DataRetrievalFailureException("selectAllWithEmps() fail", e);
