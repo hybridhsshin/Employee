@@ -123,7 +123,6 @@ public class WeatherService {
 			Current c = getCurrent(current);
 			List<Forecast> forecasts = getForecasts(weather);
 			
-			
 			w.setCurrent(c);
 			w.setForcecasts(forecasts);
 			

@@ -9,8 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-					<!--   CharacterEncodingFilter -->
+  					<!--   CharacterEncodingFilter -->
   <filter>
       <filter-name>encodingFilter</filter-name>
       <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -53,6 +52,4 @@
 		<url-pattern>/desktop/*</url-pattern>
 	</servlet-mapping>
 	
-	
-  
 </web-app>

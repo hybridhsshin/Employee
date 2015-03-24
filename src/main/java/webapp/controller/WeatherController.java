@@ -27,6 +27,7 @@ public class WeatherController {
 		
 		return "weather/form";
 	}
+	
 	@RequestMapping(value="/show",method=RequestMethod.POST)
 	public String showWeather(Model model, String city){
 		log.info("############");
